@@ -34,11 +34,13 @@ public class TodoDAO {
 	 * Create new TODO object
 	 * @param todoText
 	 */
-	public void createTodo(String todoText) {
+	public void createTodo(String todoText, Integer priorityText) {
 		ContentValues contentValues = new ContentValues();
 		contentValues.put("todo", todoText);
+		contentValues.put("priority", priorityText);
 	    // Insert into DB
 		db.insert("todos", null, contentValues);
+		db.insert("priorityText", null, contentValues);
 	}
 	
 	/**
@@ -69,7 +71,8 @@ public class TodoDAO {
 	    	Todo todo = new Todo();
 	    	// Take values from the DB
 	    	todo.setId(cursor.getInt(0));
-	    	todo.setText(cursor.getString(1));
+			todo.setText(cursor.getString(1));
+			todo.setPriority(cursor.getInt(2));
 	    	
 	    	// Add to the DB
 	    	todoList.add(todo);

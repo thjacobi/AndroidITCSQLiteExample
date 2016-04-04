@@ -13,8 +13,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class TodoSQLiteHelper extends SQLiteOpenHelper {
 
 	public TodoSQLiteHelper(Context context) {
-		// Databse: todos_db, Version: 1
-		super(context, "todos_db", null, 1);
+		// Databse: todos_db, Version: 2
+		super(context, "todos_db", null, 3);
 	}
 
 	/**
@@ -22,11 +22,12 @@ public class TodoSQLiteHelper extends SQLiteOpenHelper {
 	 * todos
 	 * 		_id 	- key
 	 * 		todo	- todo text
+	 * 		priority - priority int
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		// Execute create table SQL
-		db.execSQL("CREATE TABLE todos (_id INTEGER PRIMARY KEY AUTOINCREMENT, todo TEXT NOT NULL);");
+		db.execSQL("CREATE TABLE todos (_id INTEGER PRIMARY KEY AUTOINCREMENT, todo TEXT NOT NULL), priority INTEGER NOT NULL;");
 	}
 
 	/**

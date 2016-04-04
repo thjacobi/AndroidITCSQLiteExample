@@ -4,6 +4,7 @@ public class Todo {
 
 	private int id;
 	private String text;
+	private int priority;
 
 	public int getId() {
 		return id;
@@ -17,6 +18,13 @@ public class Todo {
 	}
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public int getPriority() {
+		return priority;
+	}
+	public void setPriority(int priority) {
+		this.priority = priority;
 	}
 	
 }

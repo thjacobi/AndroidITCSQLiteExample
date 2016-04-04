@@ -17,6 +17,7 @@ public class AddTodoActivity extends Activity implements OnClickListener {
 	private EditText todoText;		// Text field
 	private Button addNewButton;	// Add new button
 	private Button backButton;		// Back button
+	private EditText priority;  	// Text field
 	
 	// DAO
 	private TodoDAO dao;
@@ -33,7 +34,8 @@ public class AddTodoActivity extends Activity implements OnClickListener {
 		todoText 		= (EditText)findViewById(R.id.newTodoText);
 		addNewButton 	= (Button)findViewById(R.id.addNewTodoButton);
 		backButton		= (Button)findViewById(R.id.menuGoBackButton);
-		
+		priority 		= (EditText)findViewById(R.id.newPriortity);
+
 		addNewButton.setOnClickListener(this);
 		backButton.setOnClickListener(this);
 		
@@ -46,9 +48,13 @@ public class AddTodoActivity extends Activity implements OnClickListener {
 			// Get entered text
 			String todoTextValue = todoText.getText().toString();
 			todoText.setText("");
+			Integer todoPriorityValue = Integer.parseInt(priority.getText().toString());
+			priority.setText("");
+
+
 			
 			// Add text to the database
-			dao.createTodo(todoTextValue);
+			dao.createTodo(todoTextValue, todoPriorityValue);
 			
 			// Display success information
 			Toast.makeText(getApplicationContext(), "New TODO added!", Toast.LENGTH_LONG).show();
