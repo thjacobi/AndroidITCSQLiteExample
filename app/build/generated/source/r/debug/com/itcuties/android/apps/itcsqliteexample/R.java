@@ -20,7 +20,7 @@ public final class R {
         public static final int menuGoBackButton=0x7f070004;
         public static final int newPriortity=0x7f070002;
         public static final int newTodoText=0x7f070001;
-        public static final int todoText=0x7f070005;
+        public static final int rowView=0x7f070005;
     }
     public static final class layout {
         public static final int activity_add_todo=0x7f030000;
